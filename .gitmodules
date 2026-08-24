@@ -1,0 +1,6 @@
+[submodule "intended-learning-outcomes"]
+	path = intended-learning-outcomes
+	url = git@github.com:iticse26-wg11/intended-learning-outcomes.git
+[submodule "learning-activities"]
+	path = learning-activities
+	url = git@github.com:iticse26-wg11/learning-activities.git
