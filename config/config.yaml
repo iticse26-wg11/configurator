@@ -1,58 +1,65 @@
-# Course configuration — filled in by the `configure-course` and
-# `gather-sources` skills. Educators normally never edit this by hand; talk to
-# Claude instead. Schema and field meanings: config/README.md.
-# A complete worked example: config/examples/one-day-workshop.yaml
+# Example: a one-day (6 h) GenAI literacy workshop for first-year computing
+# students, ethics-heavy, with light formative assessment.
 
 version: 1
-status: empty            # empty | configured | built
+status: built
 
 course:
-  title: null
-  institution: null
-  instructor: null
+  title: Generative AI Literacy for Computing Students
+  institution: Example University
+  instructor: Dr A. Educator
   language: en
-  audience: null         # e.g. "first-year BSc Computer Science students"
-  level: null            # introductory | intermediate | advanced
-  discipline_context: null
-  delivery: null         # in-person | online | hybrid
-  class_size: null
-  session_length_minutes: null
+  audience: first-year BSc Computer Science students (~60)
+  level: introductory
+  discipline_context: computer science / software development
+  delivery: in-person
+  class_size: 60
+  session_length_minutes: 90
 
-# CFG01 topic selection + CFG02 relative importance
-topics: []
-#  - id: MM
-#    weight: 3           # 1 (minor) – 5 (central)
-#    subtopics: all      # or a list of sub-topic ids from config/topics.yaml
-#    exclude_ilos: []    # optional: individual ILOs to leave out
+topics:
+  - id: H
+    weight: 1
+    subtopics: all
+  - id: MM
+    weight: 4
+    subtopics: [MM.how-it-works, MM.training, MM.applications]
+  - id: EPR
+    weight: 5
+    subtopics: [EPR.data, EPR.limitations-alignment, EPR.use-responsibility, EPR.contexts]
+    exclude_ilos: [EPR09]
+  - id: CS
+    weight: 3
+    subtopics: [CS.foundations, CS.trust-verification]
 
-# CFG03 available time + CFG04 presentation vs. activity split
 time:
-  total_hours: null
-  presentation_share: null   # 0–1; activity_share is the remainder
-  homework_hours: 0          # optional out-of-class time (pre-sessional work etc.)
+  total_hours: 6
+  presentation_share: 0.4
+  homework_hours: 1
 
-# CFG05 assessment inclusion + CFG06 assessment scope
 assessment:
-  include: null
-  scope: all               # all | list of topic / sub-topic / ILO ids
-  types: [formative]       # formative | summative
-  formats: []              # e.g. quiz, reflection, project, presentation
-  grade_share: null        # optional, e.g. "20% of module grade"
+  include: true
+  scope: [MM, EPR.use-responsibility]
+  types: [formative]
+  formats: [reflection, quiz]
+  grade_share: null
 
-# CFG07 attachments considered during generation (managed by gather-sources)
-attachments: []
-#  - path: course-resources/university-genai-policy.pdf
-#    kind: policy         # policy | syllabus | reading | example | dataset | other
-#    title: University GenAI policy 2026
-#    how_to_use: Students must comply; cite it in every activity that uses GenAI tools.
-#    applies_to: all      # all | list of topic / sub-topic / ILO / activity ids
+attachments:
+  - path: course-resources/example-university-genai-policy.md
+    kind: policy
+    title: Example University policy on student use of generative AI
+    how_to_use: >-
+      Binding for students. Summarise in the course overview; use as the
+      "provided policy" in any activity that asks students to evaluate output
+      against a policy (e.g. LA03, LA11).
+    applies_to: all
 
-# CFG08 preferences the generated course must adapt to
 preferences:
-  tone: null               # e.g. "friendly and practical", "formal academic"
-  prior_knowledge: null    # what students already know about GenAI / programming
-  tools_available: []      # GenAI tools students may use, e.g. ChatGPT, Copilot, local Ollama
-  constraints: []          # free text, e.g. "no activities requiring paid accounts"
+  tone: friendly and practical, plain language, no jargon without explanation
+  prior_knowledge: most have used ChatGPT; no ML background; one semester of Python
+  tools_available: [ChatGPT (free tier), GitHub Copilot via university licence]
+  constraints:
+    - no activities requiring paid accounts or local model downloads
+    - room has no whiteboard; use flipcharts
   output:
     speaker_notes: true
     slide_outlines: true
