@@ -1,5 +1,8 @@
 # Instructor guide: {{course.title}}
 
+## What you need to create before the day
+The activities that need material the instructor must *make*, not just print — with a time estimate each. E.g. *LA07 Unplugged LLM simulation: five one-page training texts in different genres + a tested n-gram table, ~1–2 h.* Total estimate at the bottom. If this is more than you can do, ask `revise-course` to swap an activity.
+
 ## Before the course
 - [ ] Materials to prepare or print, per session (from each activity's Resources)
 - [ ] Tool access to verify (accounts, licences, room equipment) — only tools in `tools_available`

@@ -36,7 +36,7 @@ For each topic, walk its selected ILOs and pick activities from the library:
 1. **Candidates**: activities whose `related_ilos` intersect the topic's selected ILOs.
 2. **Filter by hard constraints** from `course.*` and `preferences.*`: delivery mode (an `Unplugged` activity in an online course needs adaptation or replacement), `tools_available` (drop/adapt activities needing tools they don't have, e.g. LA09 needs Colab + a 7B model), class size vs. `scale`, `constraints` (e.g. "no paid accounts").
 3. **Rank** by selected-ILOs-covered per minute; take greedily until `activity_t` is spent.
-4. **Fitting**: if the best candidate exceeds the remaining budget by ≤ 30 %, include a **shortened adaptation** and label it (`Adapted from LA07 — shortened to 30 min: fewer sampling rounds`). If it exceeds by more, either move its pre-work into `homework` (if the source allows a pre-sessional part, e.g. LA12, LA14) or replace it with a *mini-activity* you design that explicitly targets the ILO, labelled as `Generated (no library activity fits): …`. Generated mini-activities are last resort and must be listed in `coverage.md`.
+4. **Fitting** — prefer the library, always. If the best candidate is longer than the remaining budget, ask one question: *does the activity's core mechanic survive at the shorter length?* (The timeline reveal, the dice-driven sampling, the hidden-vs-revealed decision tree, the policy comparison.) If yes, include a **shortened adaptation**, however deep the cut, and label it precisely (`Adapted from LA01 — condensed 45 → 15 min: 8 cards, single whole-class reveal`). If the mechanic doesn't survive, move its pre-sessional part into `homework` where the source has one (LA12, LA14), or take a *part* of it (LA10 part 1 in class, part 2 as homework). Only when nothing in the library targets the ILO at all do you design a *mini-activity*, labelled `Generated (no library activity fits): …`. Every adaptation and every generated item is listed in `coverage.md` with the reason. Don't apply a fixed percentage threshold — the example build showed a 3× condensed library activity beats an invented one.
 5. **Sequencing constraints** from the library: LA10 (mindmap) splits into first and last session; LA09 assumes LA07 before it; LA13 assumes MM01/MM02/EPR05/CS02 taught first; LA14 assumes CS01–CS03. Respect these when ordering sessions.
 6. **Assessment-bearing activities** (LA08, LA11, LA14, LA15) are preferred when `assessment.include` is true and the ILO is in scope.
 
@@ -44,7 +44,12 @@ Any selected ILO with no activity after this step is recorded as *presentation-o
 
 ## 4. Plan sessions
 
-Chunk the budget into sessions of `course.session_length_minutes` (last one may be shorter). Keep each session on one topic where possible; order topics H → MM → CS → EPR unless weights or prerequisites argue otherwise (EPR discussion activities land better after students have a mental model). Each session gets: opening (≤ 5 min), presentation blocks, activities, wrap-up (≤ 5 min). Sum every session's blocks; the grand total **must** equal `contact`. Show the per-session table in `00-overview.md`.
+**Activities are lumpy; presentation is fluid.** Place activities first, then let presentation fill the remaining minutes of each session. The per-topic budgets from step 2 are *targets* for activity selection, not per-session quotas — what must add up exactly is the **per-session timeline** and the **grand total**.
+
+1. Chunk the budget into sessions of `course.session_length_minutes` (last one may be shorter). Keep each session on one or two topics; order H → MM → CS → EPR unless weights or prerequisites argue otherwise (EPR discussion activities land better after students have a mental model).
+2. Place the selected activities into sessions, respecting the sequencing constraints from step 3 and contiguity (a 45-min activity needs 45 contiguous minutes — never split one across a break).
+3. Fill each session's remaining minutes with presentation blocks for that session's ILOs, plus an opening (≤ 5 min) and a closing (≤ 5 min; may be folded into an activity's closing discussion). Every ILO that has no activity must get a named presentation block.
+4. Sum every session's blocks; the grand total **must** equal `contact`, and the presentation/activity split must be within one 5-minute block of the configured split. Show the per-session table in `00-overview.md` and reconcile the numbers in `coverage.md`. Before writing files, verify the timeline arithmetic (a quick script over the timeline tables is fine).
 
 Homework minutes go to pre-sessional parts of activities (LA12, LA14), the pre/post mindmap, reflections, and reading from `reading` attachments.
 
@@ -84,4 +89,8 @@ Finally set `status: built` in `config/config.yaml`.
 
 ## 8. Report
 
-Tell the educator, in plain language: where the course is, the session list with minutes, which library activities were used (ids + names), anything adapted or generated, any ILO that ended up presentation-only, and how each attachment was applied. Then offer `revise-course` for changes. Don't paste file contents unless asked.
+Tell the educator, in plain language: where the course is, the session list with minutes, which library activities were used (ids + names), anything adapted or generated, any ILO that ended up presentation-only, and how each attachment was applied.
+
+Then state the **preparation burden** explicitly — this is the thing a non-technical educator most needs to hear before the day: which activities require material the instructor must *create* (not just print), with a rough time estimate. From the library: LA07 needs ~5 one-page training texts in different genres and a tested n-gram table (~1–2 h); LA06 needs 10 pre-generated outputs with planted errors (~1 h); LA11 needs case cards and 1–2-page policy summaries (~1–2 h); LA02 needs a scenario plus a custom GPT/knowledge base (~1 h); LA15 needs a pipeline diagram and worksheet (~1 h); LA01 needs milestone cards (~30 min). Put the same list at the top of `instructor-guide.md` under *Before the course* with the estimates, so it isn't buried.
+
+Finally offer `revise-course` for changes — including swapping out a high-prep activity if the estimate is a problem. Don't paste file contents unless asked.
