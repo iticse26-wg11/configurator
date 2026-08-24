@@ -1,0 +1,67 @@
+# Example: a one-day (6 h) GenAI literacy workshop for first-year computing
+# students, ethics-heavy, with light formative assessment.
+
+version: 1
+status: configured
+
+course:
+  title: Generative AI Literacy for Computing Students
+  institution: Example University
+  instructor: Dr A. Educator
+  language: en
+  audience: first-year BSc Computer Science students (~60)
+  level: introductory
+  discipline_context: computer science / software development
+  delivery: in-person
+  class_size: 60
+  session_length_minutes: 90
+
+topics:
+  - id: H
+    weight: 1
+    subtopics: all
+  - id: MM
+    weight: 4
+    subtopics: [MM.how-it-works, MM.training, MM.applications]
+  - id: EPR
+    weight: 5
+    subtopics: [EPR.data, EPR.limitations-alignment, EPR.use-responsibility, EPR.contexts]
+    exclude_ilos: [EPR09]
+  - id: CS
+    weight: 3
+    subtopics: [CS.foundations, CS.trust-verification]
+
+time:
+  total_hours: 6
+  presentation_share: 0.4
+  homework_hours: 1
+
+assessment:
+  include: true
+  scope: [MM, EPR.use-responsibility]
+  types: [formative]
+  formats: [reflection, quiz]
+  grade_share: null
+
+attachments:
+  - path: course-resources/example-university-genai-policy.md
+    kind: policy
+    title: Example University policy on student use of generative AI
+    how_to_use: >-
+      Binding for students. Summarise in the course overview; use as the
+      "provided policy" in any activity that asks students to evaluate output
+      against a policy (e.g. LA03, LA11).
+    applies_to: all
+
+preferences:
+  tone: friendly and practical, plain language, no jargon without explanation
+  prior_knowledge: most have used ChatGPT; no ML background; one semester of Python
+  tools_available: [ChatGPT (free tier), GitHub Copilot via university licence]
+  constraints:
+    - no activities requiring paid accounts or local model downloads
+    - room has no whiteboard; use flipcharts
+  output:
+    speaker_notes: true
+    slide_outlines: true
+    student_handouts: true
+    instructor_guide: true

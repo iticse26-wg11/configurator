@@ -1,0 +1,96 @@
+# Topic tree for course configuration (CFG01).
+#
+# Topics are the four ILO areas; sub-topics group ILOs within an area.
+# ILO ids refer to ../intended-learning-outcomes/ilos.yaml — that file is the
+# source of truth for wording. If ILOs are added or renumbered there, update
+# this tree to match (scripts/validate-config.py checks that every ILO listed
+# here exists and that every ILO in ilos.yaml appears exactly once).
+#
+# `summary` lines are plain-language descriptions for educators; they are what
+# the configure-course skill shows when asking which topics to include.
+
+topics:
+  - id: H
+    name: History of AI
+    summary: >-
+      Where today's generative AI came from: key milestones, the boom-and-bust
+      cycles ("AI winters"), and how GenAI differs from earlier AI such as
+      search engines and recommender systems.
+    subtopics:
+      - id: H.history
+        name: AI history and lineage
+        summary: Milestones, AI winters, and earlier AI vs. GenAI.
+        ilos: [H01, H02]
+
+  - id: MM
+    name: Mental Models
+    summary: >-
+      How generative AI actually works, at a level any student can hold in
+      their head: next-token prediction, how models are trained, what they can
+      and can't do, common myths, and what "explainability" means.
+    subtopics:
+      - id: MM.how-it-works
+        name: How GenAI works
+        summary: Next-token prediction, limitations, and misconceptions vs. reality.
+        ilos: [MM01, MM03, MM05]
+      - id: MM.training
+        name: How models are trained
+        summary: Data collection, pre-training, fine-tuning and RLHF, and their limitations.
+        ilos: [MM02]
+      - id: MM.applications
+        name: Applications, use cases and attitudes
+        summary: What GenAI is good for, and when it is (not) appropriate to use.
+        ilos: [MM04, MM06]
+      - id: MM.explainability
+        name: Explainability
+        summary: What XAI means, how it affects trust, and its limits for GenAI.
+        ilos: [MM07, MM08]
+
+  - id: EPR
+    name: Ethics, Policy and Regulations
+    summary: >-
+      The human, environmental, legal and societal side of GenAI: the resources
+      and labour behind it, data and bias, limitations and alignment,
+      responsible use and cognitive debt, and policies and norms in the
+      student's discipline.
+    subtopics:
+      - id: EPR.resources-labor
+        name: Resources and labour behind GenAI
+        summary: Water, minerals, energy and human labour needed to build and run models.
+        ilos: [EPR01]
+      - id: EPR.data
+        name: GenAI and data
+        summary: Training data and bias, data control and sovereignty, shortcomings of outputs.
+        ilos: [EPR02, EPR03, EPR04]
+      - id: EPR.limitations-alignment
+        name: Limitations, efficacy and alignment
+        summary: Hallucination and harm; reliable vs. trustworthy vs. responsible; verifying outputs.
+        ilos: [EPR05, EPR06, EPR07]
+      - id: EPR.use-responsibility
+        name: GenAI use and responsibility
+        summary: Cognitive debt, labour and automation, normative principles, planning responsible use.
+        ilos: [EPR08, EPR09, EPR10, EPR11]
+      - id: EPR.contexts
+        name: Social, professional and regulatory contexts
+        summary: AI policy, societal expectations and power dynamics, discipline-specific norms.
+        ilos: [EPR12, EPR13, EPR14]
+
+  - id: CS
+    name: Computer Science
+    summary: >-
+      GenAI as a tool in computing work: types of systems and how to choose
+      one, core operational concepts, verifying outputs, and how to divide
+      work between humans and AI in development workflows.
+    subtopics:
+      - id: CS.foundations
+        name: Foundations of GenAI systems
+        summary: Types of systems, tokens/context/non-determinism, open-source vs. proprietary.
+        ilos: [CS01, CS02, CS03]
+      - id: CS.trust-verification
+        name: Trust, risk and verification
+        summary: Why and how to verify GenAI output, and the limits of verification.
+        ilos: [CS04a, CS04b]
+      - id: CS.collaboration
+        name: Human–AI collaboration
+        summary: Decomposing problems, choosing a workflow (assisted/agentic), iterative prompting.
+        ilos: [CS05, CS06, CS07]
