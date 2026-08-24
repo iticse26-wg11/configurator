@@ -74,6 +74,19 @@
 **Setup** — Individual, on paper (A4 provided) or a phone/laptop drawing app. No GenAI tools in this activity.
 
 **Steps**
+Starter shape, if you want one:
+
+```mermaid
+mindmap
+  root((GenAI))
+    What it is
+    What it can do
+    What it can't do
+    Risks
+    Tools I've used
+```
+*Start from these branches or ignore them; the map is yours.*
+
 1. (1 min) Write "GenAI" in the middle of the page.
 2. (12 min) Branch out everything you currently believe about it: what it is, how it works, what it can and can't do, where it's used, what worries you. There are no wrong answers — this is a snapshot, not a test. Starter branches if you're stuck: *What it is · What it can do · What it can't do · Risks · Tools I've used*.
 3. (5 min) Swap with a neighbour: find one thing you both wrote and one thing only one of you wrote.
@@ -90,6 +103,22 @@
 1. (7 min) Place the cards on the timeline where your group thinks they belong.
 2. (5 min) Whole-class reveal, one card at a time: groups hold up where they put it; instructor gives the real date.
 3. (3 min) Show of hands: which card surprised you most?
+
+**Take-home after the reveal** (hand out or show only once the cards are placed):
+
+```mermaid
+timeline
+    title Older than you think
+    1770 : Mechanical Turk chess "robot"
+    1956 : Term "artificial intelligence"
+    1966 : ELIZA, first chatbot
+    1980s : Expert systems, then AI winter
+    1997 : Computer beats chess champion
+    2011 : Voice assistants on phones
+    2017 : Transformers
+    2022 : Chat-style GenAI for everyone
+```
+*Two centuries of boom and bust, and only the last two rows are generative.*
 
 **Debrief** — Draw out for H01: the long tail (a "chess robot" in the 1770s), and the boom–bust rhythm. For H02: which cards are *generative* and which are earlier AI that classifies, ranks or plays a fixed game.
 

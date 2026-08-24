@@ -13,6 +13,20 @@
 
 \* **Augmentation** = the AI helped me think or learn (e.g. explained a concept I then understood). **Substitution** = the AI did the thinking for me (e.g. wrote code I submitted without understanding it).
 
+**Where does each use sit?**
+
+```mermaid
+quadrantChart
+    title Augmentation or substitution?
+    x-axis "I couldn't do it without AI" --> "I could do it myself"
+    y-axis "AI did the thinking" --> "AI helped me think"
+    quadrant-1 Augmentation
+    quadrant-2 Learning with help
+    quadrant-3 Cognitive debt risk
+    quadrant-4 Convenience
+```
+*Place each row of your log in a quadrant. Bottom-left is where cognitive debt builds: you can't do it without the tool, and the tool did the thinking.*
+
 **2. Reflection questions**
 - Which tasks would I find hard to do now without AI?
 - When did AI save me effort, and when did it do the thinking for me?

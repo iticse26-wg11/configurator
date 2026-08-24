@@ -44,6 +44,16 @@ At the end of the course, students should be able to …
 
 ## Schedule
 
+```mermaid
+timeline
+    title Course at a glance
+    Session 1 : Where GenAI came from : How it generates text : Your starting mindmap
+    Session 2 : Unplugged LLM simulation : How models are made : Kinds of GenAI tools
+    Session 3 : Use cases and checking : Cognitive debt
+    Session 4 : Data, harm and verification : Principles and policies
+```
+*Four 90-minute sessions; homework sits between sessions 2 and 3, and after session 4.*
+
 | # | Session | Topic area | Presentation | Activities | Total | Homework |
 |---|---------|------------|--------------|------------|-------|----------|
 | 1 | [Where GenAI came from, and how it works](sessions/01-where-genai-came-from.md) | H, MM | 55 min | 35 min | 90 min | — |
@@ -63,6 +73,14 @@ This course follows the **Example University Policy on Student Use of Generative
 - Any submitted work that used GenAI must carry an **AI use statement**: *"which tool(s), for what purpose, and what the student changed"*. No statement = you are asserting no GenAI was used.
 - You remain responsible for what you submit: *"'The AI said so' is not a defence."*
 - Use free consumer tools (e.g. ChatGPT free tier) only with non-sensitive material; for University data use only approved tools (GitHub Copilot via the University licence is approved).
+
+```mermaid
+flowchart LR
+    A[Allowed<br>brainstorm, plan, outline<br>explain concepts, critique drafts<br>code you can explain line by line] --> D
+    N[Not allowed<br>undisclosed AI content<br>closed-book assessments<br>other people's data or confidential material] --> D
+    D[Always<br>AI use statement:<br>which tool, what for, what you changed]
+```
+*The University policy in one picture: the AI use statement is the non-negotiable.*
 
 Every activity in this course where you use a GenAI tool starts with a short **policy check** so this becomes a habit rather than a rule you look up later. The full policy is in `course-resources/example-university-genai-policy.md`.
 

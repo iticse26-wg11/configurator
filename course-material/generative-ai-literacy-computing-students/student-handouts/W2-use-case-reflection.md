@@ -4,6 +4,20 @@
 
 **Policy check (tick):** ☐ No personal data of others in my prompts ☐ Nothing confidential ☐ I will write an AI use statement below
 
+**Before you rate anything, run the output through this:**
+
+```mermaid
+flowchart TD
+    O[GenAI output] --> C{Correct?<br>run the tests / check against the source}
+    C -- no --> X[Fix it or discard it]
+    C -- yes --> M{Complete? Unbiased? Harmless?}
+    M -- no --> X
+    M -- yes --> E{Can I explain every line?}
+    E -- no --> X
+    E -- yes --> U[Use it, and disclose it]
+```
+*"Can I explain every line" is the University policy's own test for AI-generated code.*
+
 Complete one column per use case.
 
 | | Use case A — write code (student-ID validator) | Use case B — summarise the University GenAI policy |
