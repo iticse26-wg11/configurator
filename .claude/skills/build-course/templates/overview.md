@@ -17,6 +17,8 @@ At the end of the course, students should be able to …
 
 ## Schedule
 
+*Course-at-a-glance Mermaid timeline (see `visuals.md`), then the table.*
+
 | # | Session | Topic area | Presentation | Activities | Total | Homework |
 |---|---------|------------|--------------|------------|-------|----------|
 | 1 | … | … | 40 min | 45 min | 90 min | 20 min |

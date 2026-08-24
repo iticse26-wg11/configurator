@@ -31,6 +31,8 @@
 
 **Setup** — grouping, materials (from the source's Resources), tool access (only tools from `tools_available`).
 
+**Figure** *(where the activity has a structural concept)* — Mermaid diagram from `visuals.md`, adapted; italic caption.
+
 **Steps** — numbered, timed, student-facing wording. Include the scenario/prompt text students actually need. Where students use GenAI tools and a policy attachment exists, include a "Before you start: policy check" step.
 
 **Debrief** — the discussion questions from the source, plus what the instructor should draw out for each ILO.

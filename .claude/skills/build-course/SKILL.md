@@ -66,7 +66,11 @@ Resolve `assessment.scope` to an ILO set. For each ILO in scope: first reuse the
 - `how_to_use` text overrides these defaults. Record where each attachment was applied in `coverage.md` → *Attachments*.
 - Write everything in `course.language`, in `preferences.tone`, pitched at `preferences.prior_knowledge`. Name only tools from `preferences.tools_available` in student-facing instructions.
 
-## 7. Write the files
+## 7. Visual elements (student-facing files)
+
+Handouts, the overview and student-facing activity steps get diagrams where the concept is structural — a process, a split, a timeline, a decision. Use Mermaid fenced blocks (they render on GitHub, VS Code and most VLEs; no image tooling; editable by the educator). Ready snippets for the recurring concepts — generation loop, model pipeline, augmentation/substitution quadrant, verification flow, reliable/trustworthy/responsible, history timeline, mindmap starter, course-at-a-glance — are in `templates/visuals.md`; adapt them to the course's wording rather than inventing new ones. Rules: ≤ 12 nodes; default styling (theme-safe); a one-line italic caption after each; reuse library figures by copying them into `<course>/figures/`; never link external images. Slide outlines are instructor-facing — mark figure cues there as `[figure: …]` rather than embedding diagrams. Target: the overview has the course-at-a-glance timeline; every handout has one figure that does work.
+
+## 8. Write the files
 
 Course slug: kebab-case of `course.title` (max ~6 words). Output to `course-material/<slug>/`:
 
@@ -87,7 +91,7 @@ Toggle speaker notes / slide outlines per `preferences.output`. Use the template
 
 Finally set `status: built` in `config/config.yaml`.
 
-## 8. Report
+## 9. Report
 
 Tell the educator, in plain language: where the course is, the session list with minutes, which library activities were used (ids + names), anything adapted or generated, any ILO that ended up presentation-only, and how each attachment was applied.
 
