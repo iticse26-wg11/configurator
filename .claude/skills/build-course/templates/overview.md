@@ -36,3 +36,7 @@ One paragraph: whether/what is assessed, formative vs. graded, formats, grade sh
 ## Reading and resources
 
 From `reading` attachments, plus the source activity references (e.g. Crawford & Joler 2018 for LA08, OECD AI Principles for LA04). No invented references.
+
+---
+
+*Built with the [GenAI Course Configurator](https://github.com/iticse26-wg11/configurator) by ITiCSE 2026 Working Group 11.*

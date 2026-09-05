@@ -70,6 +70,16 @@ Resolve `assessment.scope` to an ILO set. For each ILO in scope: first reuse the
 
 Handouts, the overview and student-facing activity steps get diagrams where the concept is structural — a process, a split, a timeline, a decision. Use Mermaid fenced blocks (they render on GitHub, VS Code and most VLEs; no image tooling; editable by the educator). Ready snippets for the recurring concepts — generation loop, model pipeline, augmentation/substitution quadrant, verification flow, reliable/trustworthy/responsible, history timeline, mindmap starter, course-at-a-glance — are in `templates/visuals.md`; adapt them to the course's wording rather than inventing new ones. Rules: ≤ 12 nodes; default styling (theme-safe); a one-line italic caption after each; reuse library figures by copying them into `<course>/figures/`; never link external images. Slide outlines are instructor-facing — mark figure cues there as `[figure: …]` rather than embedding diagrams. Target: the overview has the course-at-a-glance timeline; every handout has one figure that does work.
 
+### 7b. Header artwork (optional, needs an image-generation key)
+
+Each page can open with one illustration that sets its tone. This is optional: the course is complete without it, and many educators will have no API key. Do it when `OPENAI_API_KEY` is set in the environment (check with `[ -n "$OPENAI_API_KEY" ]`); otherwise skip silently and mention in the report that artwork can be added later.
+
+1. Write `course-material/<slug>/figures/artwork.json`: a shared `style` paragraph (medium, palette, mood; always end with "No text, no letters, no logos, no watermarks, no realistic faces") and one entry per page under `pages` — key, `file` (path relative to the course folder; `null` for the site index image), a one-sentence `alt`, and a `prompt` describing a *scene that embodies the page's idea*, not a diagram of it (a river of word tiles and a die for next-word prediction; roots under a speech bubble for resources and labour; a fractured mirror for unreliable outputs). Keep prompts to one or two sentences and vary the motifs across pages so the set feels like one illustrated book. The demo course's `figures/artwork.json` is a worked example.
+2. Run `python3 scripts/make-artwork.py course-material/<slug> --insert`. It generates `figures/art-<key>.jpg` (about 300 KB each, a few cents each) and places `![alt](figures/art-<key>.jpg)` directly under each page's H1. Exit code 3 means no key: skip. A `FAILED` line means one image did not come through: re-run with `--only=<key>` or leave that page without artwork and say so.
+3. Look at two or three of the images (the `Read` tool shows them) before reporting; regenerate any that contain text or drift from the style with `--force --only=<key>`.
+
+Artwork lives in `figures/` with the course so it renders on GitHub and travels with the Markdown; never link images from external sites.
+
 ## 8. Write the files
 
 Course slug: kebab-case of `course.title` (max ~6 words). Output to `course-material/<slug>/`:
@@ -85,6 +95,7 @@ student-handouts/         only if preferences.output.student_handouts — one pe
                           a worksheet or brief (from the activity's Resources list)
 coverage.md               ILO → session / activity / assessment; presentation-only ILOs and why;
                           excluded ILOs; adaptations; attachments — template: templates/coverage.md
+figures/                  header artwork (art-*.jpg + artwork.json) if generated in step 7b; library figures copied here
 ```
 
 Toggle speaker notes / slide outlines per `preferences.output`. Use the templates' headings verbatim so `revise-course` can find sections later.
@@ -96,5 +107,7 @@ Finally set `status: built` in `config/config.yaml`.
 Tell the educator, in plain language: where the course is, the session list with minutes, which library activities were used (ids + names), anything adapted or generated, any ILO that ended up presentation-only, and how each attachment was applied.
 
 Then state the **preparation burden** explicitly — this is the thing a non-technical educator most needs to hear before the day: which activities require material the instructor must *create* (not just print), with a rough time estimate. From the library: LA07 needs ~5 one-page training texts in different genres and a tested n-gram table (~1–2 h); LA06 needs 10 pre-generated outputs with planted errors (~1 h); LA11 needs case cards and 1–2-page policy summaries (~1–2 h); LA02 needs a scenario plus a custom GPT/knowledge base (~1 h); LA15 needs a pipeline diagram and worksheet (~1 h); LA01 needs milestone cards (~30 min). Put the same list at the top of `instructor-guide.md` under *Before the course* with the estimates, so it isn't buried.
+
+Mention whether header artwork was generated (and if not, that it can be added later with an image-generation key), and that `publish-course` can put the course on a website.
 
 Finally offer `revise-course` for changes — including swapping out a high-prep activity if the estimate is a problem. Don't paste file contents unless asked.

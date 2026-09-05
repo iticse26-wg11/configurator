@@ -23,8 +23,8 @@ Assume the user is a university teacher, not a developer. They may never have us
 | `config/examples/` | Complete example configurations. |
 | `course-resources/` | Educator-supplied attachments (policies, syllabi, readings) referenced from `config.yaml`. |
 | `course-material/` | **Generated output.** One folder per built course. |
-| `scripts/` | `validate-config.py` (config checks), `update-content.sh` (maintainers: refresh content libraries). |
-| `.claude/skills/` | The four workflows below, as skill files. Other agents: read and follow them as procedures. |
+| `scripts/` | `validate-config.py` (config checks), `make-artwork.py` (optional header images, needs `OPENAI_API_KEY`), `publish-site.py` (Markdown → HTML for a static website), `update-content.sh` (maintainers: refresh content libraries). |
+| `.claude/skills/` | The five workflows below, as skill files. Other agents: read and follow them as procedures. |
 
 **If `intended-learning-outcomes/` or `learning-activities/` is empty**, the submodules were not fetched. Run `git submodule update --init` and tell the user "fetching the content library" — nothing more.
 
@@ -39,8 +39,8 @@ Assume the user is a university teacher, not a developer. They may never have us
 ## The workflow
 
 ```
-configure-course  →  gather-sources  →  build-course  →  revise-course (repeat)
-   (CFG01–06, 08)        (CFG07)          generate         adjust & rebuild
+configure-course  →  gather-sources  →  build-course  →  revise-course (repeat)  →  publish-course
+   (CFG01–06, 08)        (CFG07)          generate         adjust & rebuild          put it on a website
 ```
 
 Skills live in `.claude/skills/<name>/SKILL.md`. Each is self-contained: read the one you need in full before starting.
@@ -49,9 +49,12 @@ Skills live in `.claude/skills/<name>/SKILL.md`. Each is self-contained: read th
 - **gather-sources** — collect attachments into `course-resources/`, record them in `config.yaml` with how they should be used.
 - **build-course** — read config + libraries + attachments; generate `course-material/<course-slug>/` (overview, sessions, assessment, instructor guide, coverage); set `status: built`.
 - **revise-course** — take a change request in plain language, update config and/or regenerate only the affected files.
+- **publish-course** — convert the built course to HTML and push it to a GitHub Pages repository the educator names; link it from the site's landing page.
+
+**Header artwork** is optional. `build-course` generates one illustration per page with `scripts/make-artwork.py` when `OPENAI_API_KEY` is set, and skips silently when it isn't; a course without artwork is complete. Never fetch images from the web into a course.
 
 **Routing.** When the user's intent is unclear, look at `config/config.yaml` → `status`:
-`empty` → offer to start configuring · `configured` → offer to gather sources or build · `built` → offer to revise, review, or rebuild. A first message like "hi" or "help" should get a two-sentence description of what this tool does and the offer that matches the status.
+`empty` → offer to start configuring · `configured` → offer to gather sources or build · `built` → offer to revise, review, publish, or rebuild. A first message like "hi" or "help" should get a two-sentence description of what this tool does and the offer that matches the status.
 
 ## Requirements this tool implements
 

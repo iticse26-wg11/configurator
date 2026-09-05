@@ -17,7 +17,11 @@ An educator clones this repository, opens it with an AI coding assistant (Claude
 4. When the questions are done, say **"build the course"**. Your course appears in `course-material/<your-course>/`.
 5. Ask for changes in plain language — *"make session 2 more hands-on"*, *"we now have 8 hours"*, *"add our department's AI policy"* — and the assistant updates only what's affected.
 
-The four steps are also available as commands: `/configure-course`, `/gather-sources`, `/build-course`, `/revise-course`.
+6. Optionally, say **"publish the course"** and name a GitHub Pages repository you can push to; the course goes online as web pages.
+
+The steps are also available as commands: `/configure-course`, `/gather-sources`, `/build-course`, `/revise-course`, `/publish-course`.
+
+**A finished example** is in [`course-material/generative-ai-literacy-for-cs1/`](course-material/generative-ai-literacy-for-cs1/) — a two-day online course for first-year students — and online at <https://iticse26-wg11.github.io/courses/generative-ai-literacy-for-cs1/>.
 
 ## What you get
 
@@ -26,6 +30,8 @@ The four steps are also available as commands: `/configure-course`, `/gather-sou
 - **A time budget that adds up**: every session's blocks sum to the hours you gave, split as you asked.
 - **Traceability**: `coverage.md` shows where every outcome is taught, practised and assessed, and what was left out and why.
 - **Your documents respected**: policies you attach are summarised in the syllabus and built into the activities where students use GenAI tools.
+- **Diagrams, and optionally artwork**: student-facing pages carry Mermaid diagrams that render on GitHub. If an `OPENAI_API_KEY` is set in your environment, the build also creates one illustration per page (a few cents each); without a key the course is complete, just without pictures.
+- **A website if you want one**: `publish-course` converts the course to HTML pages and pushes them to a GitHub Pages repository you name.
 
 Requirements this implements (working group Table 15, CFG01–CFG08) and how they map onto the configuration: [`config/README.md`](config/README.md).
 
@@ -38,8 +44,8 @@ Requirements this implements (working group Table 15, CFG01–CFG08) and how the
 | `config/` | Course configuration (`config.yaml`). |
 | `course-material/` | Generated course material. |
 | `course-resources/` | Supporting resources for courses. |
-| `scripts/` | `validate-config.py` (checks a configuration), `update-content.sh` (maintainers: refresh content libraries). |
-| `.claude/skills/` | The four workflows (`configure-course`, `gather-sources`, `build-course`, `revise-course`). |
+| `scripts/` | `validate-config.py` (checks a configuration), `make-artwork.py` (optional header images via OpenAI, needs `OPENAI_API_KEY`), `publish-site.py` (Markdown → HTML for a static site), `update-content.sh` (maintainers: refresh content libraries). |
+| `.claude/skills/` | The five workflows (`configure-course`, `gather-sources`, `build-course`, `revise-course`, `publish-course`). |
 | `AGENTS.md`, `CLAUDE.md` | Grounding instructions for the AI assistant. |
 
 ## For maintainers: the content submodules

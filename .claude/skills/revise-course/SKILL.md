@@ -25,7 +25,9 @@ If the request is ambiguous between a small local edit and a structural change, 
 2. Edit `config.yaml` if needed; run `python3 scripts/validate-config.py` when available.
 3. Regenerate only what depends on the change, following `build-course` for those files. Keep unaffected files byte-identical. Always regenerate `coverage.md` and the schedule in `00-overview.md` if timing, topics, activities or assessment changed.
 4. Keep the time budget honest: after any change, re-total the schedule and show the educator the new totals.
-5. Set `status: built` and append a dated line to `course-material/<slug>/CHANGELOG.md` describing the revision (create the file on first revision).
+5. Keep `figures/` intact: existing header artwork stays unless the educator asks for new images. If the revision adds a page (a new session or handout) and `OPENAI_API_KEY` is set, add an entry for it to `figures/artwork.json` and run `python3 scripts/make-artwork.py course-material/<slug> --insert --only=<key>`; without a key, leave the new page without artwork and say so.
+6. If the course was published (`publish-course`), offer to republish after the change.
+7. Set `status: built` and append a dated line to `course-material/<slug>/CHANGELOG.md` describing the revision (create the file on first revision).
 
 ## Finish
 
