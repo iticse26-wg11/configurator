@@ -4,39 +4,43 @@
 # A complete worked example: config/examples/one-day-workshop.yaml
 
 version: 1
-status: empty            # empty | configured | built
+status: built             # empty | configured | built
 
 course:
-  title: null
+  title: Generative AI Literacy for CS1
   institution: null
   instructor: null
   language: en
-  audience: null         # e.g. "first-year BSc Computer Science students"
-  level: null            # introductory | intermediate | advanced
-  discipline_context: null
-  delivery: null         # in-person | online | hybrid
-  class_size: null
-  session_length_minutes: null
+  audience: "first-year computing students taking their first programming course (CS1)"
+  level: introductory
+  discipline_context: "computer science, first programming course"
+  delivery: online       # in-person | online | hybrid
+  class_size: 50
+  session_length_minutes: 90
 
 # CFG01 topic selection + CFG02 relative importance
-topics: []
-#  - id: MM
-#    weight: 3           # 1 (minor) – 5 (central)
-#    subtopics: all      # or a list of sub-topic ids from config/topics.yaml
-#    exclude_ilos: []    # optional: individual ILOs to leave out
+topics:
+  - id: MM
+    weight: 3           # 1 (minor) – 5 (central)
+    subtopics: all      # or a list of sub-topic ids from config/topics.yaml
+    exclude_ilos: []    # optional: individual ILOs to leave out
+  - id: EPR
+    weight: 3
+    subtopics: all
+    exclude_ilos: []
 
 # CFG03 available time + CFG04 presentation vs. activity split
 time:
-  total_hours: null
-  presentation_share: null   # 0–1; activity_share is the remainder
+  total_hours: 6             # two online days of ~3 contact hours each
+  presentation_share: 0.5    # 0–1; activity_share is the remainder
   homework_hours: 0          # optional out-of-class time (pre-sessional work etc.)
 
 # CFG05 assessment inclusion + CFG06 assessment scope
 assessment:
-  include: null
+  include: true
   scope: all               # all | list of topic / sub-topic / ILO ids
   types: [formative]       # formative | summative
-  formats: []              # e.g. quiz, reflection, project, presentation
+  formats: [quiz, reflection]  # e.g. quiz, reflection, project, presentation
   grade_share: null        # optional, e.g. "20% of module grade"
 
 # CFG07 attachments considered during generation (managed by gather-sources)
@@ -49,10 +53,14 @@ attachments: []
 
 # CFG08 preferences the generated course must adapt to
 preferences:
-  tone: null               # e.g. "friendly and practical", "formal academic"
-  prior_knowledge: null    # what students already know about GenAI / programming
-  tools_available: []      # GenAI tools students may use, e.g. ChatGPT, Copilot, local Ollama
-  constraints: []          # free text, e.g. "no activities requiring paid accounts"
+  tone: "friendly and practical; concrete examples from student life and CS1 programming"
+  prior_knowledge: "little GenAI experience — assume many students have barely used chat tools; first programming course, so no assumed coding fluency"
+  tools_available: ["free tiers of chat tools such as ChatGPT, Gemini, Claude or Copilot; no paid accounts"]
+  constraints:
+    - "fully online delivery over video call: activities must work with breakout rooms and shared documents, no physical materials"
+    - "two days of about 3 contact hours each, in ~90-minute blocks with breaks"
+    - "class of 50: group work needs 8–12 breakout groups of 4–6"
+    - "no paid GenAI accounts required"
   output:
     speaker_notes: true
     slide_outlines: true
