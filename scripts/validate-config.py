@@ -54,7 +54,7 @@ def frontmatter(path):
 
 # --- libraries ---------------------------------------------------------------
 ilo_path = "intended-learning-outcomes/ilos.yaml"
-act_glob = "learning-activities/activities/*.md"
+act_glob = "learning-activities/activities/*/README.md"
 if not os.path.exists(os.path.join(ROOT, ilo_path)):
     err(f"{ilo_path} missing — run `git submodule update --init`")
     print("\n".join("ERROR: " + e for e in errors)); sys.exit(1)

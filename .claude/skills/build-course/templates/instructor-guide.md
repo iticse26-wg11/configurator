@@ -1,13 +1,13 @@
 # Instructor guide: {{course.title}}
 
 ## What you need to create before the day
-The activities that need material the instructor must *make*, not just print — with a time estimate each. E.g. *LA07 Unplugged LLM simulation: five one-page training texts in different genres + a tested n-gram table, ~1–2 h.* Total estimate at the bottom. If this is more than you can do, ask `revise-course` to swap an activity.
+The activities that need material the instructor must *make*, not just print — with a time estimate each. E.g. *LA03 Unplugged LLM simulation: five one-page training texts in different genres + a tested n-gram table, ~1–2 h.* Total estimate at the bottom. If this is more than you can do, ask `revise-course` to swap an activity.
 
 ## Before the course
 - [ ] Materials to prepare or print, per session (from each activity's Resources)
 - [ ] Tool access to verify (accounts, licences, room equipment) — only tools in `tools_available`
 - [ ] Attachments to (re)read and distribute (policy, syllabus)
-- [ ] Pre-generated content the instructor must create (e.g. 10 outputs to fact-check for LA06, training datasets for LA07, case cards for LA11)
+- [ ] Pre-generated content the instructor must create (e.g. 10 outputs to fact-check for LA07, training datasets for LA03, case cards for LA12)
 
 ## Session-by-session prep
 Per session: what to print, set up, pre-generate; who to group how; where timing is tight.

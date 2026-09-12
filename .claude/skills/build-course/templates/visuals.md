@@ -2,7 +2,7 @@
 
 Use Mermaid (fenced ```mermaid blocks): it renders on GitHub, in VS Code and in most markdown-aware VLEs, needs no tooling, and stays editable. Keep diagrams small (≤ 12 nodes), use default styling (it adapts to light/dark themes), and always follow a diagram with a one-line caption in italics saying what to look at. Every student-facing file should have at least one figure where a concept is structural (a process, a split, a timeline, a decision). Don't decorate: if a table says it better, use the table.
 
-Reuse library figures where they exist (copy into `<course>/figures/`): `learning-activities/activities/figures/xai-decision-tree-example.png` (LA05).
+Reuse library figures where they exist (copy into `<course>/figures/`): `learning-activities/activities/LA08/figures/decision-tree.png` (LA08).
 
 ## Course at a glance (overview)
 ```mermaid
@@ -14,7 +14,7 @@ timeline
     Session 4 : Principles and policies
 ```
 
-## Next-token generation loop (MM01, CS02 — LA07 handout)
+## Next-token generation loop (MM01, CS02 — LA03 handout)
 ```mermaid
 flowchart LR
     P[Prompt / text so far] --> L[Look up likely next tokens]
@@ -24,7 +24,7 @@ flowchart LR
     A -.stop?.-> O[Output]
 ```
 
-## How a model is made (MM02, EPR02, EPR03 — LA15 or session 2 handout)
+## How a model is made (MM02, EPR02, EPR03 — LA05 or session 2 handout)
 ```mermaid
 flowchart LR
     D[Data collection<br>web, books, code, forums] --> T[Pre-training<br>next-token prediction]
@@ -35,7 +35,7 @@ flowchart LR
     F -. raters' preferences .-> G
 ```
 
-## Augmentation vs. substitution (EPR08 — LA12 handout)
+## Augmentation vs. substitution (EPR08 — LA14 handout)
 ```mermaid
 quadrantChart
     title Where does your GenAI use sit?
@@ -67,7 +67,7 @@ flowchart LR
     R -. not enough on its own .-> S
 ```
 
-## AI history (H01 — LA01 reveal, post-activity handout)
+## AI history (H01 — LA02 reveal, post-activity handout)
 ```mermaid
 timeline
     title Older than you think
@@ -81,7 +81,7 @@ timeline
     2022 : Chat-style GenAI for everyone
 ```
 
-## Mindmap starter (MM05 — LA10)
+## Mindmap starter (MM05 — LA01)
 ```mermaid
 mindmap
   root((GenAI))

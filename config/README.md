@@ -32,7 +32,7 @@ One entry per included topic area (`H`, `MM`, `EPR`, `CS`). `weight` is relative
 `total_hours` is contact time. `presentation_share` is the fraction of contact time for instructor-led presentation; the rest goes to activities. `homework_hours` lets the build place pre-sessional or reflective work outside class.
 
 ### `assessment`
-When `include` is true the build generates assessment items for ILOs in `scope`. Activities that carry their own formative assessment (LA08, LA11, LA14, LA15) are used first; additional items are generated in the requested `formats`.
+When `include` is true the build generates assessment items for ILOs in `scope`. Activities that carry their own formative assessment (LA04, LA12, LA13, LA05) are used first; additional items are generated in the requested `formats`.
 
 ### `attachments[]`
 Each file the educator wants considered. `kind` tells the build how to treat it: a `policy` is binding content to summarise and reference; a `syllabus` constrains scope and terminology; `reading` and `example` are material to cite or reuse. `how_to_use` is free text and takes precedence over defaults. `applies_to` limits where the attachment is used.

@@ -40,7 +40,7 @@ Requirements this implements (working group Table 15, CFG01–CFG08) and how the
 | Path | What it is |
 |------|------------|
 | `intended-learning-outcomes/` | **Submodule** → [iticse26-wg11/intended-learning-outcomes](https://github.com/iticse26-wg11/intended-learning-outcomes). The ILOs (`ilos.yaml` + per-area markdown). |
-| `learning-activities/` | **Submodule** → [iticse26-wg11/learning-activities](https://github.com/iticse26-wg11/learning-activities). One markdown file per activity, mapped to ILOs. |
+| `learning-activities/` | **Submodule** → [iticse26-wg11/learning-activities](https://github.com/iticse26-wg11/learning-activities). One directory per activity (`activities/LA<NN>/README.md`, imported from the WG report), mapped to ILOs. |
 | `config/` | Course configuration (`config.yaml`). |
 | `course-material/` | Generated course material. |
 | `course-resources/` | Supporting resources for courses. |

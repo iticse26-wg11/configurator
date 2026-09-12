@@ -17,7 +17,7 @@ Assume the user is a university teacher, not a developer. They may never have us
 | Path | Role |
 |------|------|
 | `intended-learning-outcomes/` | **Content library (git submodule).** `ilos.yaml` is the authoritative list of 32 intended learning outcomes (ILOs) in four areas: History (H), Mental Models (MM), Ethics/Policy/Regulations (EPR), Computer Science (CS). |
-| `learning-activities/` | **Content library (git submodule).** 15 activities, `activities/NN-slug.md`, each with YAML frontmatter (`id`, `related_ilos`, `duration`, `setting`, `grouping`, `mode`, `assessment`, …). `ilo-coverage.md` maps ILOs ↔ activities. |
+| `learning-activities/` | **Content library (git submodule).** 15 activities, `activities/LA<NN>/README.md` (plus `expanded.md` and `figures/` for some), each with YAML frontmatter (`id`, `related_ilos`, `duration`, `setting`, `grouping`, `mode`, `assessment`, …). `ilo-coverage.md` maps ILOs ↔ activities. |
 | `config/topics.yaml` | Topic → sub-topic → ILO tree shown to educators when choosing content. |
 | `config/config.yaml` | The educator's course settings (CFG01–CFG08). `config/README.md` documents every field. |
 | `config/examples/` | Complete example configurations. |

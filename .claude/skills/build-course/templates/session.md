@@ -13,7 +13,7 @@
 |------|-------|------|-------|
 | 0:00–0:05 | Welcome and framing | Opening | |
 | 0:05–0:30 | … | Presentation | |
-| 0:30–1:15 | Activity: … (LA07, adapted) | Activity | |
+| 0:30–1:15 | Activity: … (LA03, adapted) | Activity | |
 | 1:15–1:30 | Wrap-up and bridge to next session | Closing | |
 
 ## Presentation
@@ -27,7 +27,7 @@
 ## Activities
 
 ### Activity: {{name}} — *{{LAxx}}* ({{minutes}} min)
-**Source:** learning-activities/activities/NN-slug.md · **ILOs:** … · **Adaptation:** none | "shortened from 60 to 40 min: …" | "moved online: …"
+**Source:** learning-activities/activities/LA<NN>/README.md · **ILOs:** … · **Adaptation:** none | "shortened from 60 to 40 min: …" | "moved online: …"
 
 **Setup** — grouping, materials (from the source's Resources), tool access (only tools from `tools_available`).
 

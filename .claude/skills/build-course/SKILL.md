@@ -12,7 +12,7 @@ Turns a configuration into teachable material. Read `AGENTS.md` first if you hav
 - `config/config.yaml` — refuse politely if `status: empty` (offer `configure-course`). If `status: built`, ask: rebuild from scratch, or should they use `revise-course`? Confirm before overwriting a folder they may have edited.
 - `config/topics.yaml` — resolve the selected topics/sub-topics/exclusions into a **selected ILO set**.
 - `intended-learning-outcomes/ilos.yaml` — exact wording for each selected ILO.
-- `learning-activities/activities/*.md` — read frontmatter for all 15; read the full body of every activity whose `related_ilos` intersects the selected set.
+- `learning-activities/activities/*/README.md` — read frontmatter for all 15; read the full body of every activity whose `related_ilos` intersects the selected set.
 - Every file in `attachments[]` — read in full. Note the concrete rules/terms you must reflect.
 - Run `python3 scripts/validate-config.py` if PyYAML is present. Stop and fix on errors.
 
@@ -36,9 +36,9 @@ For each topic, walk its selected ILOs and pick activities from the library:
 1. **Candidates**: activities whose `related_ilos` intersect the topic's selected ILOs.
 2. **Filter by hard constraints** from `course.*` and `preferences.*`: delivery mode (an `Unplugged` activity in an online course needs adaptation or replacement), `tools_available` (drop/adapt activities needing tools they don't have, e.g. LA09 needs Colab + a 7B model), class size vs. `scale`, `constraints` (e.g. "no paid accounts").
 3. **Rank** by selected-ILOs-covered per minute; take greedily until `activity_t` is spent.
-4. **Fitting** — prefer the library, always. If the best candidate is longer than the remaining budget, ask one question: *does the activity's core mechanic survive at the shorter length?* (The timeline reveal, the dice-driven sampling, the hidden-vs-revealed decision tree, the policy comparison.) If yes, include a **shortened adaptation**, however deep the cut, and label it precisely (`Adapted from LA01 — condensed 45 → 15 min: 8 cards, single whole-class reveal`). If the mechanic doesn't survive, move its pre-sessional part into `homework` where the source has one (LA12, LA14), or take a *part* of it (LA10 part 1 in class, part 2 as homework). Only when nothing in the library targets the ILO at all do you design a *mini-activity*, labelled `Generated (no library activity fits): …`. Every adaptation and every generated item is listed in `coverage.md` with the reason. Don't apply a fixed percentage threshold — the example build showed a 3× condensed library activity beats an invented one.
-5. **Sequencing constraints** from the library: LA10 (mindmap) splits into first and last session; LA09 assumes LA07 before it; LA13 assumes MM01/MM02/EPR05/CS02 taught first; LA14 assumes CS01–CS03. Respect these when ordering sessions.
-6. **Assessment-bearing activities** (LA08, LA11, LA14, LA15) are preferred when `assessment.include` is true and the ILO is in scope.
+4. **Fitting** — prefer the library, always. If the best candidate is longer than the remaining budget, ask one question: *does the activity's core mechanic survive at the shorter length?* (The timeline reveal, the dice-driven sampling, the hidden-vs-revealed decision tree, the policy comparison.) If yes, include a **shortened adaptation**, however deep the cut, and label it precisely (`Adapted from LA02 — condensed 45 → 15 min: 8 cards, single whole-class reveal`). If the mechanic doesn't survive, move its pre-sessional part into `homework` where the source has one (LA14, LA13), or take a *part* of it (LA01 part 1 in class, part 2 as homework). Only when nothing in the library targets the ILO at all do you design a *mini-activity*, labelled `Generated (no library activity fits): …`. Every adaptation and every generated item is listed in `coverage.md` with the reason. Don't apply a fixed percentage threshold — the example build showed a 3× condensed library activity beats an invented one.
+5. **Sequencing constraints** from the library: LA01 (mindmap) splits into first and last session; LA09 assumes LA03 before it; LA10 assumes MM01/MM02/EPR05/CS02 taught first; LA13 assumes CS01–CS03. Respect these when ordering sessions.
+6. **Assessment-bearing activities** (LA04, LA12, LA13, LA05) are preferred when `assessment.include` is true and the ILO is in scope.
 
 Any selected ILO with no activity after this step is recorded as *presentation-only* in `coverage.md` with the reason (budget, constraints, no library match).
 
@@ -51,7 +51,7 @@ Any selected ILO with no activity after this step is recorded as *presentation-o
 3. Fill each session's remaining minutes with presentation blocks for that session's ILOs, plus an opening (≤ 5 min) and a closing (≤ 5 min; may be folded into an activity's closing discussion). Every ILO that has no activity must get a named presentation block.
 4. Sum every session's blocks; the grand total **must** equal `contact`, and the presentation/activity split must be within one 5-minute block of the configured split. Show the per-session table in `00-overview.md` and reconcile the numbers in `coverage.md`. Before writing files, verify the timeline arithmetic (a quick script over the timeline tables is fine).
 
-Homework minutes go to pre-sessional parts of activities (LA12, LA14), the pre/post mindmap, reflections, and reading from `reading` attachments.
+Homework minutes go to pre-sessional parts of activities (LA14, LA13), the pre/post mindmap, reflections, and reading from `reading` attachments.
 
 ## 5. Assessment (if `assessment.include`)
 
@@ -59,7 +59,7 @@ Resolve `assessment.scope` to an ILO set. For each ILO in scope: first reuse the
 
 ## 6. Apply attachments and preferences
 
-- `policy` attachments: summarise the rules in `00-overview.md` → *Policies*; add a "check the policy" step to every activity where students use GenAI tools; use as the "provided policy" in LA03/LA11-derived activities. Quote the policy's actual wording where students need it.
+- `policy` attachments: summarise the rules in `00-overview.md` → *Policies*; add a "check the policy" step to every activity where students use GenAI tools; use as the "provided policy" in LA06/LA12-derived activities. Quote the policy's actual wording where students need it.
 - `syllabus`: align titles, terminology and scope; mention anything in the config that the syllabus contradicts.
 - `reading`: place as recommended reading per session; do not add outside readings unless `how_to_use` allows.
 - `example`: match structure/tone; reuse content where licensed/appropriate and say where.
@@ -106,7 +106,7 @@ Finally set `status: built` in `config/config.yaml`.
 
 Tell the educator, in plain language: where the course is, the session list with minutes, which library activities were used (ids + names), anything adapted or generated, any ILO that ended up presentation-only, and how each attachment was applied.
 
-Then state the **preparation burden** explicitly — this is the thing a non-technical educator most needs to hear before the day: which activities require material the instructor must *create* (not just print), with a rough time estimate. From the library: LA07 needs ~5 one-page training texts in different genres and a tested n-gram table (~1–2 h); LA06 needs 10 pre-generated outputs with planted errors (~1 h); LA11 needs case cards and 1–2-page policy summaries (~1–2 h); LA02 needs a scenario plus a custom GPT/knowledge base (~1 h); LA15 needs a pipeline diagram and worksheet (~1 h); LA01 needs milestone cards (~30 min). Put the same list at the top of `instructor-guide.md` under *Before the course* with the estimates, so it isn't buried.
+Then state the **preparation burden** explicitly — this is the thing a non-technical educator most needs to hear before the day: which activities require material the instructor must *create* (not just print), with a rough time estimate. From the library: LA03 needs ~5 one-page training texts in different genres and a tested n-gram table (~1–2 h); LA07 needs 10 pre-generated outputs with planted errors (~1 h); LA12 needs case cards and 1–2-page policy summaries (~1–2 h); LA11 needs a scenario plus a custom GPT/knowledge base (~1 h); LA05 needs a pipeline diagram and worksheet (~1 h); LA02 needs milestone cards (~30 min). Put the same list at the top of `instructor-guide.md` under *Before the course* with the estimates, so it isn't buried.
 
 Mention whether header artwork was generated (and if not, that it can be added later with an image-generation key), and that `publish-course` can put the course on a website.
 

@@ -13,4 +13,4 @@
 *(repeat per item; group by session order)*
 
 ## Reused from activities
-Activities whose built-in assessment is used as-is: LA08 (formative research depth), LA11 (evaluation grid), LA14 (artifacts), LA15 (reflections) — list those actually in the course, with the ILOs they cover.
+Activities whose built-in assessment is used as-is: LA04 (formative research depth), LA12 (evaluation grid), LA13 (artifacts), LA05 (reflections) — list those actually in the course, with the ILOs they cover.

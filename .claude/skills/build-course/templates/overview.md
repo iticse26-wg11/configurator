@@ -35,7 +35,7 @@ One paragraph: whether/what is assessed, formative vs. graded, formats, grade sh
 
 ## Reading and resources
 
-From `reading` attachments, plus the source activity references (e.g. Crawford & Joler 2018 for LA08, OECD AI Principles for LA04). No invented references.
+From `reading` attachments, plus the source activity references (e.g. Crawford & Joler 2018 for LA04, OECD AI Principles for LA15). No invented references.
 
 ---
 

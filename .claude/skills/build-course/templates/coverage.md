@@ -6,7 +6,7 @@ Generated {{date}} from `config/config.yaml`.
 
 | ILO | Taught (session) | Practised (activity) | Assessed (item) |
 |-----|------------------|----------------------|-----------------|
-| MM01 | S2 | LA07 (adapted) | quiz Q3 |
+| MM01 | S2 | LA03 (adapted) | quiz Q3 |
 | EPR01 | S4 | — presentation only (activity budget exhausted) | — |
 
 ## Not included
