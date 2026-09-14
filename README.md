@@ -93,6 +93,31 @@ git commit -m "Bump content submodules"
 
 Make content changes in the content repository itself (a sibling clone, or inside the submodule directory after `git checkout main` there), commit and push to that repo, then bump the pointer here with `scripts/update-content.sh`. Editing inside a submodule without checking out a branch first leaves you on a detached HEAD — the commit will exist but no branch points at it.
 
+## Citing this work
+
+The working group's full report is not yet published. Until it is, please cite the working-group proposal:
+
+> Bruno Pereira Cipriano, Olga Petrovska, Nuno Pombo, Lina Battestilli, Laura Farinetti, Richard Glassey, Maria Kasinidou, Olakunle Olayinka, Anshul Shah, Alexander Steinmaurer, Ramalakshmi Vaidhiyanathan, and James Weichert. 2026. Towards Improving CS Students' Generative AI Literacy. In *Proceedings of the 31st ACM Conference on Innovation and Technology in Computer Science Education V. 2 (ITiCSE 2026)*. Association for Computing Machinery, New York, NY, USA, 789–790. https://doi.org/10.1145/3803401.3812055
+
+```bibtex
+@inproceedings{10.1145/3803401.3812055,
+  author    = {Pereira Cipriano, Bruno and Petrovska, Olga and Pombo, Nuno and Battestilli, Lina and Farinetti, Laura and Glassey, Richard and Kasinidou, Maria and Olayinka, Olakunle and Shah, Anshul and Steinmaurer, Alexander and Vaidhiyanathan, Ramalakshmi and James, Weichert},
+  title     = {Towards Improving CS Students' Generative AI Literacy},
+  year      = {2026},
+  isbn      = {9798400726330},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/3803401.3812055},
+  doi       = {10.1145/3803401.3812055},
+  booktitle = {Proceedings of the 31st ACM Conference on Innovation and Technology in Computer Science Education V. 2},
+  pages     = {789--790},
+  numpages  = {2},
+  keywords  = {genai, large language models, computing education, instructional design},
+  location  = {Spain},
+  series    = {ITiCSE 2026}
+}
+```
+
 ## License
 
 [MIT](LICENSE). The course content it assembles comes from the submodules, which are CC BY 4.0.

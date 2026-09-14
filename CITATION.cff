@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use this material, please cite the working-group proposal below until the full report is published."
+title: "ITiCSE 2026 Working Group 11: Generative AI Literacy for Computing Students"
+authors:
+  - name: "ITiCSE 2026 Working Group 11"
+license: MIT
+repository-code: "https://github.com/iticse26-wg11/configurator"
+preferred-citation:
+  type: conference-paper
+  title: "Towards Improving CS Students' Generative AI Literacy"
+  year: 2026
+  doi: "10.1145/3803401.3812055"
+  url: "https://doi.org/10.1145/3803401.3812055"
+  isbn: "9798400726330"
+  publisher:
+    name: "Association for Computing Machinery"
+  collection-title: "Proceedings of the 31st ACM Conference on Innovation and Technology in Computer Science Education V. 2 (ITiCSE 2026)"
+  start: 789
+  end: 790
+  authors:
+    - family-names: "Pereira Cipriano"
+      given-names: "Bruno"
+    - family-names: "Petrovska"
+      given-names: "Olga"
+    - family-names: "Pombo"
+      given-names: "Nuno"
+    - family-names: "Battestilli"
+      given-names: "Lina"
+    - family-names: "Farinetti"
+      given-names: "Laura"
+    - family-names: "Glassey"
+      given-names: "Richard"
+    - family-names: "Kasinidou"
+      given-names: "Maria"
+    - family-names: "Olayinka"
+      given-names: "Olakunle"
+    - family-names: "Shah"
+      given-names: "Anshul"
+    - family-names: "Steinmaurer"
+      given-names: "Alexander"
+    - family-names: "Vaidhiyanathan"
+      given-names: "Ramalakshmi"
+    - family-names: "Weichert"
+      given-names: "James"
