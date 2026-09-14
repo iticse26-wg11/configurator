@@ -9,7 +9,7 @@ An educator clones this repository, opens it with an AI coding assistant (Claude
 1. **Install** [Claude Code](https://claude.com/claude-code) (or another AI assistant that supports project instructions).
 2. **Get the repository**, including the content libraries:
    ```bash
-   git clone --recurse-submodules git@github.com:iticse26-wg11/configurator.git
+   git clone --recurse-submodules https://github.com/iticse26-wg11/configurator.git
    cd configurator
    claude
    ```
@@ -55,7 +55,7 @@ The ILOs and activities live in their own repositories so they can be published 
 ### Cloning
 
 ```bash
-git clone --recurse-submodules git@github.com:iticse26-wg11/configurator.git
+git clone --recurse-submodules https://github.com/iticse26-wg11/configurator.git
 ```
 
 If you already cloned without `--recurse-submodules` (the submodule directories will be empty):
@@ -92,3 +92,7 @@ git commit -m "Bump content submodules"
 ### Editing content
 
 Make content changes in the content repository itself (a sibling clone, or inside the submodule directory after `git checkout main` there), commit and push to that repo, then bump the pointer here with `scripts/update-content.sh`. Editing inside a submodule without checking out a branch first leaves you on a detached HEAD — the commit will exist but no branch points at it.
+
+## License
+
+[MIT](LICENSE). The course content it assembles comes from the submodules, which are CC BY 4.0.
