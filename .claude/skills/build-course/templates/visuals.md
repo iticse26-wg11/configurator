@@ -47,7 +47,7 @@ quadrantChart
     quadrant-4 Convenience
 ```
 
-## Verify before you use it (CS04a, EPR07 — use-case handout)
+## Verify before you use it (CS04, EPR07 — use-case handout)
 ```mermaid
 flowchart TD
     O[GenAI output] --> C{Correct?<br>test it / check the source}
